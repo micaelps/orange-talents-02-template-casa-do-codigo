@@ -19,7 +19,6 @@ public class Livro {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-
     @NotBlank
     private String titulo;
 
@@ -66,6 +65,27 @@ public class Livro {
     public Livro() {
     }
 
+    @Override
+    public String toString() {
+        return "Livro{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", resumo='" + resumo + '\'' +
+                ", sumario='" + sumario + '\'' +
+                ", precoLivro=" + precoLivro +
+                ", numeroPaginas=" + numeroPaginas +
+                ", isbn='" + isbn + '\'' +
+                ", dataPublicacao=" + dataPublicacao +
+                ", categoria=" + categoria +
+                ", autor=" + autor +
+                '}';
+    }
 
+    public Long getId() {
+        return id;
+    }
 
+    public String getTitulo() {
+        return titulo;
+    }
 }
