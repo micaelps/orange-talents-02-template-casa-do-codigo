@@ -11,7 +11,6 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/api")
 public class NovaCategoriaController {
 
     @PersistenceContext
