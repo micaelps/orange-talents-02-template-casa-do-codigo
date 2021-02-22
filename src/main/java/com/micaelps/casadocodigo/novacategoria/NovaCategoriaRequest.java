@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 public class NovaCategoriaRequest {
 
     @NotBlank
-    @UniqueValue(domainClass = Categoria.class, fieldName = "nome")
+    @UniqueValue(domainClass = Categoria.class, fieldName = "nome", message="{unique.value}")
     private String nome;
 
     public NovaCategoriaRequest(String nome) {

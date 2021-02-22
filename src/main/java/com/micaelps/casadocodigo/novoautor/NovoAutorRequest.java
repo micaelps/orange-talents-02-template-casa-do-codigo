@@ -7,12 +7,12 @@ import javax.validation.constraints.Size;
 public class NovoAutorRequest {
 
 
-    @NotBlank
+    @NotBlank(message = "{blank.value}")
     private String nome;
-    @NotBlank
-    @Email
+    @NotBlank(message = "{blank.value}")
+    @Email(message = "{email.format}")
     private String email;
-    @NotBlank
+    @NotBlank(message = "{blank.value}")
     @Size(max = 400)
     private String descricao;
 
