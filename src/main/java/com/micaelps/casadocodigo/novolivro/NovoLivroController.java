@@ -18,11 +18,11 @@ public class NovoLivroController {
     EntityManager entityManager;
 
     @Transactional
-    @PostMapping(path = "/api/livros")
+    @PostMapping(path = "livros")
     public String executa(@RequestBody @Valid NovoLivroRequest novoLivroRequest) {
         Livro livro = novoLivroRequest.toModel(entityManager);
         entityManager.persist(livro);
-        return "feito";
+        return novoLivroRequest.toString();
     }
 
 

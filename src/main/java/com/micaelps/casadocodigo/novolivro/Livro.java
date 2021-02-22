@@ -3,6 +3,7 @@ package com.micaelps.casadocodigo.novolivro;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.micaelps.casadocodigo.novacategoria.Categoria;
 import com.micaelps.casadocodigo.novoautor.Autor;
+import com.micaelps.casadocodigo.validators.UniqueValue;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -87,5 +88,37 @@ public class Livro {
 
     public String getTitulo() {
         return titulo;
+    }
+
+    public String getResumo() {
+        return resumo;
+    }
+
+    public String getSumario() {
+        return sumario;
+    }
+
+    public BigDecimal getPrecoLivro() {
+        return precoLivro;
+    }
+
+    public Integer getNumeroPaginas() {
+        return numeroPaginas;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public LocalDate getDataPublicacao() {
+        return dataPublicacao;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public Autor getAutor() {
+        return autor;
     }
 }

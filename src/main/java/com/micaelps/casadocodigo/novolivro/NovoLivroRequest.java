@@ -39,7 +39,7 @@ public class NovoLivroRequest {
     private Integer numeroPaginas;
 
     @NotBlank
-    @UniqueValue(domainClass = Livro.class, fieldName = "titulo")
+    @UniqueValue(domainClass = Livro.class, fieldName = "isbn")
     private String isbn;
 
     @Future
@@ -110,5 +110,20 @@ public class NovoLivroRequest {
 
     public Long getAutor() {
         return autor;
+    }
+
+    @Override
+    public String toString() {
+        return "NovoLivroRequest{" +
+                "titulo='" + titulo + '\'' +
+                ", resumo='" + resumo + '\'' +
+                ", sumario='" + sumario + '\'' +
+                ", precoLivro=" + precoLivro +
+                ", numeroPaginas=" + numeroPaginas +
+                ", isbn='" + isbn + '\'' +
+                ", dataPublicacao=" + dataPublicacao +
+                ", categoria=" + categoria +
+                ", autor=" + autor +
+                '}';
     }
 }
