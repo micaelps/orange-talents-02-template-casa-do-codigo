@@ -20,7 +20,7 @@ import java.util.Optional;
 public class DetalhesLivroController {
 
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Transactional
     @GetMapping(path = "/livros/{id}")

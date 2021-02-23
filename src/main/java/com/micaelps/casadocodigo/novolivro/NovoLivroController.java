@@ -15,7 +15,7 @@ public class NovoLivroController {
 
 
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Transactional
     @PostMapping(path = "livros")

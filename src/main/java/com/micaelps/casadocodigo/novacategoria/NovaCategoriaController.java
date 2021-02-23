@@ -14,7 +14,7 @@ import javax.validation.Valid;
 public class NovaCategoriaController {
 
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
 
     @Transactional
