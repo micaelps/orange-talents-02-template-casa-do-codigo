@@ -21,7 +21,7 @@ import java.time.format.DateTimeFormatter;
 
 public class NovoLivroRequest {
 
-    @NotBlank(message = "{blank.value}")
+    @NotBlank
     @UniqueValue(domainClass = Livro.class, fieldName = "titulo")
     private String titulo;
 
@@ -38,7 +38,7 @@ public class NovoLivroRequest {
     @Min(20)
     private Integer numeroPaginas;
 
-    @NotBlank(message = "{blank.value}")
+    @NotBlank
     @UniqueValue(domainClass = Livro.class, fieldName = "isbn")
     private String isbn;
 
