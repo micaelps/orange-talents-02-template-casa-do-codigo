@@ -26,11 +26,29 @@ public class NotNullifExistsStateInCountryValidator implements ConstraintValidat
 
     @Override
     public boolean isValid(NovoClienteRequest value, ConstraintValidatorContext context) {
-        Query query = manager.createNativeQuery("select id, pais_id, nome from Estado where pais_id=:paisId", Estado.class);
-        query.setParameter("paisId",value.getPais());
+        String sql = sqlPorEstado(value);
+        Query query = manager.createNativeQuery(sql, Estado.class);
+        setQuery(value, query);
         Boolean listaVaziaEstadoVazio = (query.getResultList().isEmpty()) && (value.getEstado()==null);
         Boolean listaPreenchidaEstadoPresente = !(query.getResultList().isEmpty()) && !(value.getEstado()==null);
 
         return listaPreenchidaEstadoPresente|| listaVaziaEstadoVazio;
+    }
+
+    private void setQuery(NovoClienteRequest value, Query query) {
+        query.setParameter("paisId", value.getPais());
+        if(value.getEstado()!=null){
+        query.setParameter("estadoId", value.getEstado());
+        }
+    }
+
+    private String sqlPorEstado(NovoClienteRequest value) {
+        String sql;
+        if(value.getEstado()!=null){
+            sql = "select id, pais_id, nome from Estado where pais_id=:paisId and id =:estadoId";
+        }else {
+            sql = "select id, pais_id, nome from Estado where pais_id=:paisId";
+        }
+        return sql;
     }
 }
